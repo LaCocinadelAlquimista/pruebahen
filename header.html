@@ -1,0 +1,43 @@
+<!-- components/header.html -->
+<div class="container nav-wrapper">
+    <a href="index.html" class="brand" aria-label="Volver al inicio">Aura Cases</a>
+
+    <!-- Desktop Menu -->
+    <nav class="desktopElement" aria-label="Navegación principal">
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html#productos">Catálogo</a></li>
+            <li>
+                <a href="personalizar.html">Diseñá tu Case</a>
+                <!-- Submenu Example -->
+                <ul class="submenu">
+                    <li><a href="personalizar.html?brand=apple">Apple iPhone</a></li>
+                    <li><a href="personalizar.html?brand=samsung">Samsung Galaxy</a></li>
+                </ul>
+            </li>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-btn mobileElement" aria-label="Abrir menú" aria-expanded="false"
+        onclick="toggleMobileMenu()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </button>
+</div>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobileOverlay" class="mobile-overlay">
+    <button class="close-menu-btn" onclick="toggleMobileMenu()" aria-label="Cerrar menú">×</button>
+    <ul class="mobile-nav-links">
+        <li><a href="index.html" onclick="toggleMobileMenu()">Inicio</a></li>
+        <li><a href="index.html#productos" onclick="toggleMobileMenu()">Catálogo</a></li>
+        <li><a href="personalizar.html" onclick="toggleMobileMenu()">Diseñá tu Case</a></li>
+        <li><a href="contacto.html" onclick="toggleMobileMenu()">Contacto</a></li>
+    </ul>
+</div>
