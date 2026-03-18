@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Diseña Tu Funda | Aura Cases</title>
+    <meta name="description"
+        content="Crea tu propia funda personalizada. Sube tu foto, agrega texto y elige tu color favorito.">
+    <link rel="canonical" href="https://ejemplo-customcases.com/personalizar.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ejemplo-customcases.com/personalizar.html">
+    <meta property="og:title" content="Diseñador Interactivo | Aura Cases">
+
+    <!-- Fonts & CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        .customizer-layout {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .customizer-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .canvas-container-wrapper {
+            background: #f0f0f0;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            min-height: 600px;
+        }
+
+        /* Phone Mockup Frame around Canvas */
+        .phone-mockup {
+            width: 300px;
+            height: 600px;
+            background: #fff;
+            border-radius: 36px;
+            box-shadow: inset 0 0 0 10px #222, 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* The actual canvas inside the phone */
+        .canvas-container {
+            margin: 0 auto;
+        }
+
+        .controls-panel {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            position: sticky;
+            top: 100px;
+        }
+
+        .control-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        select,
+        input[type="text"],
+        input[type="file"] {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .color-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .color-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .color-btn.active {
+            border-color: var(--accent-color);
+            padding: 2px;
+            background-clip: content-box;
+        }
+
+        .btn-action {
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        #error-msg {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header-placeholder" role="banner"></header>
+
+    <main id="main-content" role="main" style="margin-top: calc(var(--header-height) + 2rem);">
+        <div class="text-center" style="margin-bottom: 2rem;">
+            <h1>Diseñador Interactivo</h1>
+            <p>Sube tu foto o agrega texto para crear una funda única.</p>
+        </div>
+
+        <div class="customizer-layout">
+
+            <!-- Canvas Area -->
+            <div class="canvas-container-wrapper">
+                <div class="phone-mockup" id="phoneMockup">
+                    <canvas id="tshirt-canvas" width="280" height="580"></canvas>
+                </div>
+            </div>
+
+            <!-- Controls Area -->
+            <div class="controls-panel fade-up">
+                <div class="control-group">
+                    <label for="phone-model">1. Elegí tu Modelo</label>
+                    <select id="phone-model" aria-label="Seleccionar modelo de celular" required>
+                        <option value="" disabled selected>Selecciona un modelo...</option>
+                        <optgroup label="Apple">
+                            <option value="iphone-15-pro">iPhone 15 Pro</option>
+                            <option value="iphone-15">iPhone 15</option>
+                            <option value="iphone-14">iPhone 14</option>
+                        </optgroup>
+                        <optgroup label="Samsung">
+                            <option value="s24-ultra">Galaxy S24 Ultra</option>
+                            <option value="s23">Galaxy S23</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>2. Color Base</label>
+                    <div class="color-options">
+                        <button class="color-btn active" style="background-color: #ffffff;" aria-label="Blanco"
+                            onclick="changeColor('#ffffff')"></button>
+                        <button class="color-btn" style="background-color: #000000;" aria-label="Negro"
+                            onclick="changeColor('#000000')"></button>
+                        <button class="color-btn" style="background-color: #fce4ec;" aria-label="Rosa"
+                            onclick="changeColor('#fce4ec')"></button>
+                        <button class="color-btn"
+                            style="background-color: transparent; border: 1px solid #ccc; background-image: linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(-45deg, #ccc 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ccc 75%), linear-gradient(-45deg, transparent 75%, #ccc 75%); background-size: 10px 10px; background-position: 0 0, 0 5px, 5px -5px, -5px 0px;"
+                            aria-label="Transparente" onclick="changeColor('transparent')"></button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="custom-text">3. Agregar Texto</label>
+                    <input type="text" id="custom-text" placeholder="Ej: Mi Nombre" aria-label="Texto personalizado">
+                    <button class="btn btn-outline btn-action" onclick="addText()">Añadir al diseño</button>
+                </div>
+
+                <div class="control-group">
+                    <label for="image-upload">4. Subir Imagen</label>
+                    <input type="file" id="image-upload" accept="image/png, image/jpeg, image/webp"
+                        aria-label="Subir imagen">
+                </div>
+
+                <p id="error-msg">Por favor, selecciona un modelo de celular primero.</p>
+                <button class="btn btn-primary" style="width: 100%; margin-top:2rem;" onclick="processOrder()">Continuar
+                    con el Pedido</button>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer-placeholder" role="contentinfo"></footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+
+    <!-- Fabric.js deferred for performance -->
+    <script src="js/fabric.min.js" defer></script>
+
+    <script>
+        // Initialize logic once Fabric and DOM are ready
+        window.addEventListener('load', () => {
+
+            // Wait for Fabric to be available if deferred
+            const initFabric = () => {
+                if (typeof fabric === 'undefined') {
+                    setTimeout(initFabric, 100);
+                    return;
+                }
+
+                const canvas = new fabric.Canvas('tshirt-canvas');
+                window.caseCanvas = canvas; // global ref
+
+                // Initial Background Color
+                canvas.backgroundColor = '#ffffff';
+                canvas.renderAll();
+
+                // Image Upload Handler
+                document.getElementById('image-upload').addEventListener('change', function (e) {
+                    const file = e.target.files[0];
+                    if (!file) return;
+
+                    const reader = new FileReader();
+                    reader.onload = function (f) {
+                        const data = f.target.result;
+                        fabric.Image.fromURL(data, function (img) {
+                            // Scale down if too big
+                            if (img.width > 280) {
+                                img.scaleToWidth(250);
+                            }
+                            img.set({
+                                left: 15,
+                                top: 150,
+                                cornerColor: 'white',
+                                cornerStrokeColor: 'black',
+                                transparentCorners: false,
+                                padding: 5
+                            });
+                            canvas.add(img);
+                            canvas.setActiveObject(img);
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                });
+            };
+
+            initFabric();
+        });
+
+        // Add Text to Canvas
+        function addText() {
+            const val = document.getElementById('custom-text').value;
+            if (!val || typeof fabric === 'undefined') return;
+
+            const text = new fabric.IText(val, {
+                left: 40,
+                top: 250,
+                fontFamily: 'Inter',
+                fill: '#000000',
+                fontSize: 30,
+                fontWeight: 'bold',
+                cornerColor: 'white',
+                cornerStrokeColor: 'black',
+                transparentCorners: false
+            });
+            window.caseCanvas.add(text);
+            window.caseCanvas.setActiveObject(text);
+        }
+
+        // Change Base Color
+        function changeColor(hex) {
+            // Update UI
+            document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Update Canvas
+            if (window.caseCanvas) {
+                const mockup = document.getElementById('phoneMockup');
+                if (hex === 'transparent') {
+                    mockup.style.background = '#e0e0e0'; // Simulate phone back behind transparent
+                    window.caseCanvas.backgroundColor = 'rgba(255,255,255,0.2)';
+                } else {
+                    mockup.style.background = hex;
+                    window.caseCanvas.backgroundColor = hex;
+                }
+                window.caseCanvas.renderAll();
+            }
+        }
+
+        // Order Processing
+        function processOrder() {
+            const model = document.getElementById('phone-model').value;
+            const errorMsg = document.getElementById('error-msg');
+
+            if (!model) {
+                errorMsg.style.display = 'block';
+                return;
+            }
+            errorMsg.style.display = 'none';
+
+            // Get canvas data
+            if (window.caseCanvas) {
+                // In a real scenario, we would save this dataURL to localStorage or a server
+                const designDataUrl = window.caseCanvas.toDataURL({ format: 'png', quality: 0.8 });
+
+                // Store temporarily to pass to the summary page
+                sessionStorage.setItem('customOrder_model', model);
+                sessionStorage.setItem('customOrder_design', designDataUrl);
+
+                const activeColorBtn = document.querySelector('.color-btn.active');
+                sessionStorage.setItem('customOrder_color', activeColorBtn ? activeColorBtn.style.backgroundColor : 'Blanco');
+
+                // Navigate to order summar/solicitar
+                window.location.href = 'solicitar.html';
+            }
+        }
+    </script>
+</body>
+
+</html>
