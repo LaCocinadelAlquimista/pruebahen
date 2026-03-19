@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Aura Cases | Tienda Online de Fundas y Accesorios</title>
+
+    <meta http-equiv="Content-Security-Policy" content="
+default-src 'self';
+script-src 'self' https://code.jquery.com 'unsafe-inline';
+style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+font-src https://fonts.gstatic.com;
+img-src 'self' https: data:;
+">
+
+    <meta name="description"
+        content="Fundas para iPhone, Samsung y accesorios premium. Personaliza tu celular con Aura Cases.">
+    <link rel="canonical" href="https://ejemplo-customcases.com/" />
+
+    <!-- Open Graph (Facebook/Social) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ejemplo-customcases.com/">
+    <meta property="og:title" content="Aura Cases | Tienda Online">
+    <meta property="og:description" content="Fundas para iPhone, Samsung y accesorios premium.">
+    <!-- Replace content with valid webp or png later -->
+    <meta property="og:image" content="https://ejemplo-customcases.com/og-image.jpg">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aura Cases | Tienda Online">
+    <meta name="twitter:description" content="Personaliza la funda de tu celular hoy mismo.">
+    <meta name="twitter:image" content="https://ejemplo-customcases.com/og-image.jpg">
+
+    <!-- Fonts & CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Slick Slider CSS -->
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
+
+    <style>
+        /* Specific Homepage Styles */
+        .hero {
+            position: relative;
+            background: #000;
+            color: white;
+            padding: 8rem 0;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.6;
+            background-image: url('https://images.unsplash.com/photo-1590204193583-05e83921f6bf?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Slider Customization */
+        h2.section-title {
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .product-slider {
+            padding: 0 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .slider-product-card {
+            padding: 1rem;
+        }
+
+        .slider-product-card .card-inner {
+            background: #fff;
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .slider-product-card .card-inner:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .slider-img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+        }
+    </style>
+
+    <!-- Schema.org Script -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Aura Cases",
+      "image": "https://ejemplo-customcases.com/logo.png",
+      "@id": "",
+      "url": "https://ejemplo-customcases.com",
+      "telephone": "+5491100000000",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Buenos Aires",
+        "addressCountry": "AR"
+      }  
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- Modular Header Placeholder -->
+    <header id="header-placeholder" role="banner"></header>
+
+    <main id="main-content" role="main">
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="container hero-content fade-up">
+                <h1 style="color:white; margin-bottom: 1rem;">Destaca con tu estilo</h1>
+                <p style="color:#ddd; margin-bottom: 2rem; font-size: 1.2rem;">Diseña la funda de tus sueños o elegí
+                    entre nuestra colección premium.</p>
+                <div style="display: flex; gap:1rem; justify-content: center;">
+                    <a href="personalizar.html" class="btn btn-primary" style="background:#fff; color:#000;">Diseñá la
+                        tuya</a>
+                    <a href="#productos" class="btn btn-outline" style="border-color:#fff; color:#fff;">Ver catálogo</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Product Slider (Slick) -->
+        <section id="productos" class="container fade-up">
+            <h2 class="section-title">Novedades y Elegidos</h2>
+
+            <div class="product-slider">
+
+                <!-- Slide 1 -->
+                <div class="slider-product-card">
+                    <div class="card-inner">
+                        <img src="https://images.unsplash.com/photo-1601593346740-925612772716?q=80&w=400&auto=format&fit=crop"
+                            alt="Case Transparente Magsafe" class="slider-img" loading="lazy">
+                        <h3>Case Clear MagSafe</h3>
+                        <p style="margin-bottom:1rem;">$15.000</p>
+                        <a href="#" class="btn btn-outline" style="width:100%; padding: 0.5rem;">Ver producto</a>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slider-product-card">
+                    <div class="card-inner">
+                        <img src="https://images.unsplash.com/photo-1603313011101-320f26a4f6f6?q=80&w=400&auto=format&fit=crop"
+                            alt="Combo Premium" class="slider-img" loading="lazy">
+                        <h3>Combo Aesthetic</h3>
+                        <p style="margin-bottom:1rem;">$19.500</p>
+                        <a href="#" class="btn btn-outline" style="width:100%; padding: 0.5rem;">Ver producto</a>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slider-product-card">
+                    <div class="card-inner">
+                        <img src="https://images.unsplash.com/photo-1541560052-77ec1bbc09f7?q=80&w=400&auto=format&fit=crop"
+                            alt="Funda Rosa Silicona" class="slider-img" loading="lazy">
+                        <h3>Funda Silicona Soft</h3>
+                        <p style="margin-bottom:1rem;">$12.000</p>
+                        <a href="#" class="btn btn-outline" style="width:100%; padding: 0.5rem;">Ver producto</a>
+                    </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="slider-product-card">
+                    <div class="card-inner">
+                        <img src="https://images.unsplash.com/photo-1615526675159-e248cba0e7cb?q=80&w=400&auto=format&fit=crop"
+                            alt="Accesorios AirPods" class="slider-img" loading="lazy">
+                        <h3>Fundas AirPods</h3>
+                        <p style="margin-bottom:1rem;">$8.500</p>
+                        <a href="#" class="btn btn-outline" style="width:100%; padding: 0.5rem;">Ver producto</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center" style="margin-top: 2rem;">
+                <!-- Typically to a full catalog page, linking to customization for now -->
+                <a href="personalizar.html" class="btn btn-primary">Ver todos los modelos</a>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="container fade-up" style="max-width: 800px;">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>¿Para qué modelos de celular tienen fundas?</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Contamos con fundas para todos los modelos de iPhone (desde el 11 hasta el 15 Pro Max) y
+                            principales modelos de Samsung Galaxy (Serie S y A). Podes verificar disponibilidad exacta
+                            en el menú desplegable del personalizador.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>¿Cuánto demora la entrega?</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Los pedidos de catálogo se despachan en 24hs hábiles. Para fundas personalizadas, el tiempo
+                            de producción es de 48 a 72hs hábiles antes del despacho. Luego, el correo demora entre 2 a
+                            5 días según tu ubicación.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>¿Cuáles son los métodos de pago?</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Aceptamos pago al momento de confirmar por WhatsApp mediante transferencia bancaria, Mercado
+                            Pago o links de pago con tarjetas de crédito/débito.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modular Footer Placeholder -->
+    <footer id="footer-placeholder" role="contentinfo"></footer>
+
+    <!-- Scripts -->
+    <!-- jQuery dependency for Slick -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Slick JS -->
+    <script src="js/slick.min.js"></script>
+
+    <!-- Custom Project Scripts -->
+    <script src="js/script.js"></script>
+
+    <!-- Initialize Slider -->
+    <script>
+        $(document).ready(function () {
+            $('.product-slider').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: true,
+                dots: true,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            arrows: false
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>
